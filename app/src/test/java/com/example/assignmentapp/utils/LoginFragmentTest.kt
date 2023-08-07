@@ -1,11 +1,9 @@
 package com.example.assignmentapp.utils
 
-import com.example.assignmentapp.fragmnets.LoginFragment
+import com.example.assignmentapp.fragments.LoginFragment
 import org.junit.Assert.*
 
-import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 
 class LoginFragmentTest {
 
@@ -18,7 +16,7 @@ class LoginFragmentTest {
 
     @org.junit.Test
     fun validUserName_inputEmptyString_expectedString(){
-        var result = loginFragment.isEmailEmptyorNot("")
+        val result = loginFragment.isEmailEmptyorNot("")
         assertEquals(false, result)
     }
 
@@ -28,7 +26,7 @@ class LoginFragmentTest {
     }
 
     fun validUserName_inputString_expectedString(){
-        var result = loginFragment.isEmailEmptyorNot("shubham@gmail.co")
+        val result = loginFragment.isEmailEmptyorNot("shubham@gmail.co")
         assertEquals(true, result)
     }
 }

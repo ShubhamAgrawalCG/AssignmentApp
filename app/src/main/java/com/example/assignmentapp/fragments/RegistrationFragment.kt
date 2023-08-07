@@ -1,7 +1,6 @@
-package com.example.assignmentapp.fragmnets
+package com.example.assignmentapp.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.assignmentapp.R
 import com.example.assignmentapp.viewmodels.RegistrationViewModel
@@ -17,7 +15,6 @@ import com.example.assignmentapp.databinding.FragmentRegistrationBinding
 import com.example.assignmentapp.utils.FormValidation
 import com.example.assignmentapp.utils.LoaderClass
 import com.example.assignmentapp.utils.SnackBarClass
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 
