@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">AssignmentApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account">Don\'t have an account yet? <font color="#5b39c6"><b><u><i>Sign Up</i></u></b></font> </string>
+    <string name="loginaccount">Already have an account? <font color="#5b39c6"><b><u><i>Login Here</i></u></b></font> </string>
+    <string name="register_account">Do not have an account? <font color="#5b39c6"><b><u><i>Register Here</i></u></b></font> </string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="select_your_dob">Select Your DOB</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="only_characters_allow">Only characters are allowed</string>
+    <string name="invalid_email">Please enter valid email</string>
+    <string name="minimum_eight_character_password">Minimum 8 Character Paaword</string>
+    <string name="must_contain_one_lower_case">Must contain 1 lower-case character</string>
+    <string name="must_contain_one_upper_case">Must contain 1 upper-case character</string>
+    <string name="must_contain_one_special_case">Must contain 1 special-case character</string>
+    <string name="email">\nEmail :&#160;</string>
+    <string name="user_name">\n\nUserName :&#160;</string>
+    <string name="password">\n\nPassword :&#160;</string>
+    <string name="invalid_form">Invalid Form</string>
+    <string name="okay">OKAY</string>
+    <string name="register_here">Register Here</string>
+    <string name="welcome">Welcome</string>
+    <string name="required">Required</string>
+    <string name="login">Login</string>
+    <string name="successfully_registered">Successfully Registered</string>
+    <string name="data_saved">Data Successfully Saved</string>
+    <string name="registration_success">Registration Successful</string>
+    <string name="dob">\n\nDOB : Please select your dob</string>
+    <string name="select_gender">\n\nGender : Please select gender</string>
+</resources>
