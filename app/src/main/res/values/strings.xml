@@ -31,4 +31,7 @@
     <string name="registration_success">Registration Successful</string>
     <string name="dob">\n\nDOB : Please select your dob</string>
     <string name="select_gender">\n\nGender : Please select gender</string>
+    <string name="dob_text">DOB :</string>
+    <string name="gender_text">Gender :</string>
+    <string name="sign_out">SIGN OUT</string>
 </resources>
