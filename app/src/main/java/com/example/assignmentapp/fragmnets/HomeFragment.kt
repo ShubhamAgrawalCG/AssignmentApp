@@ -13,7 +13,7 @@ import com.example.assignmentapp.adapters.HomeAdapter
 import com.example.assignmentapp.dataclasses.UserData
 import com.example.assignmentapp.databinding.FragmentHomeBinding
 import com.example.assignmentapp.utils.LoaderClass
-import com.example.assignmentapp.utils.SharedPrefenceClass
+import com.example.assignmentapp.utils.SharedPreferenceClass
 import com.example.assignmentapp.utils.SnackBarClass
 import com.example.assignmentapp.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        var recyclerView = binding.recyclerView
+        val recyclerView = binding.recyclerView
         val layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HomeAdapter(arrayList)
@@ -84,7 +84,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun moveToLoginFragment(){
-        SharedPrefenceClass.getInstance(requireContext()).saveData_InSharedPrefence(false)
+        SharedPreferenceClass.getInstance(requireContext()).saveDataInSharedPreference(false)
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
         navController.popBackStack(R.id.homeFragment, true)
         navController.navigate(R.id.loginFragment)

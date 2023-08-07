@@ -3,18 +3,18 @@ package com.example.assignmentapp.utils
 import android.content.Context
 import android.content.SharedPreferences
 
-class SharedPrefenceClass private constructor(){
+class SharedPreferenceClass private constructor(){
 
     companion object {
 
-        private val IS_LOGIN = "is_Login"
-        private val sharedPref = SharedPrefenceClass()
-        private val sharedPrefFile = "sharedPreference"
+        private const val IS_LOGIN = "is_Login"
+        private val sharedPref = SharedPreferenceClass()
+        private const val sharedPrefFile = "sharedPreference"
         private lateinit var sharedPreferences: SharedPreferences
 
-        fun getInstance(context: Context): SharedPrefenceClass {
+        fun getInstance(context: Context): SharedPreferenceClass {
             if(!::sharedPreferences.isInitialized) {
-                synchronized(SharedPrefenceClass::class.java) {
+                synchronized(SharedPreferenceClass::class.java) {
                     if (!::sharedPreferences.isInitialized) {
                         sharedPreferences =
                             context.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
@@ -26,7 +26,7 @@ class SharedPrefenceClass private constructor(){
     }
 
 
-    fun saveData_InSharedPrefence(isLogin : Boolean){
+    fun saveDataInSharedPreference(isLogin : Boolean){
         sharedPreferences.edit().putBoolean(IS_LOGIN, isLogin).apply()
     }
 

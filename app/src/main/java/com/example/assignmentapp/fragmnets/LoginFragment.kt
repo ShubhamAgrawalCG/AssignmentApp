@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.assignmentapp.R
 import com.example.assignmentapp.databinding.FragmentLoginBinding
-import com.example.assignmentapp.utils.SharedPrefenceClass
+import com.example.assignmentapp.utils.SharedPreferenceClass
 import com.example.assignmentapp.utils.SnackBarClass
 import com.example.assignmentapp.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
     private fun observeViewModelData() {
         loginViewModel.signInLiveData.observe(viewLifecycleOwner) {
             if (it.isSuccess) {
-                SharedPrefenceClass.getInstance(requireContext()).saveData_InSharedPrefence(true)
+                SharedPreferenceClass.getInstance(requireContext()).saveDataInSharedPreference(true)
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             } else {
                 SnackBarClass.showSnackBar(requireContext(), requireView(), it.error)

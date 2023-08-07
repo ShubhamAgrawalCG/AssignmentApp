@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.assignmentapp.R
 import com.example.assignmentapp.databinding.FragmentSplashBinding
-import com.example.assignmentapp.utils.SharedPrefenceClass
+import com.example.assignmentapp.utils.SharedPreferenceClass
 
 class SplashFragment : Fragment() {
 
@@ -32,14 +32,13 @@ class SplashFragment : Fragment() {
     private fun initLottieAnimation(){
         binding.apply {
             animationView.setAnimation("lottie_animation.json")
-            animationView.loop(true)
             animationView.playAnimation()
         }
     }
 
     private fun moveToNextFragment(){
         Handler(Looper.getMainLooper()).postDelayed({
-            if(SharedPrefenceClass.getInstance(requireContext()).getUserId){
+            if(SharedPreferenceClass.getInstance(requireContext()).getUserId){
                 moveToHomeFragment()
             } else{
                 moveToRegistrationFragment()
