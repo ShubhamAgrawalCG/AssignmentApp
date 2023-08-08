@@ -15,8 +15,7 @@ import javax.inject.Inject
 class RegistrationViewModel @Inject constructor(private val repository: Repository) :
     ViewModel() {
 
-    var firebaseRegistrationResponseMutableLiveData =
-        MutableLiveData<FirebaseRegistrationResponse>()
+    private var firebaseRegistrationResponseMutableLiveData = MutableLiveData<FirebaseRegistrationResponse>()
     private var userDetailsMutuableLiveData = MutableLiveData<FirebaseRegistrationResponse>()
 
     val registrationResponseLiveData: LiveData<FirebaseRegistrationResponse> get() = firebaseRegistrationResponseMutableLiveData

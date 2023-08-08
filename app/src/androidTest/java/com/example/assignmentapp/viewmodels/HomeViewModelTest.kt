@@ -7,7 +7,6 @@ import com.example.assignmentapp.firebase.Firebase
 import com.example.assignmentapp.repository.Repository
 import com.example.assignmentapp.utils.getOrAwaitValue
 import junit.framework.TestCase
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
@@ -17,8 +16,8 @@ class HomeViewModelTest : TestCase() {
 
     private lateinit var viewModel: HomeViewModel
 
-    @Rule
-    val instantTaskExecutorRule = InstantTaskExecutorRule()
+    @get: Rule
+     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Before
     public override fun setUp() {
@@ -32,10 +31,6 @@ class HomeViewModelTest : TestCase() {
     fun testUserLogin_validCredential(){
         viewModel.getUserListFromFirebase()
         val result = viewModel.userListLiveData.getOrAwaitValue().isSuccess
-        TestCase.assertEquals(true, result)
-    }
-
-    @After
-    public override fun tearDown() {
+        assertEquals(true, result)
     }
 }

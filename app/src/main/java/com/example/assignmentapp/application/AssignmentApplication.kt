@@ -6,5 +6,4 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class AssignmentApplication : Application() {
 
-   // val registrationRepository by lazy { RegistrationRepository(database.getUserLogInDao()) }
 }

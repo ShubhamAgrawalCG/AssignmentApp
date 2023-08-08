@@ -39,7 +39,7 @@ class RegistrationViewModelTest : TestCase(){
 
     @Test
     fun testUserRegistration_invalidCredential(){
-        viewModel.registerUserOnFirebase("abc@g.ab", "Shubham@123")
+        viewModel.registerUserOnFirebase("abc@ab", "Shubham@123")
         val result = viewModel.registrationResponseLiveData.getOrAwaitValue().isSuccess
         assertEquals(false, result)
     }
