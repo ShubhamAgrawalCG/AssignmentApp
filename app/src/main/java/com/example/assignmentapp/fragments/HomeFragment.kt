@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assignmentapp.R
 import com.example.assignmentapp.adapters.HomeAdapter
 import com.example.assignmentapp.dataclasses.UserData
@@ -25,6 +26,7 @@ class HomeFragment : Fragment() {
     private val homeViewModel by viewModels<HomeViewModel>()
     private var arrayList: ArrayList<UserData> = arrayListOf()
     private lateinit var loaderClass: LoaderClass
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,21 +40,33 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initRecyclerView()
         initLoader()
         clickOnSignOutButton()
         getUsersFromFirebase()
         observeUserListLiveData()
     }
 
+    private fun initRecyclerView(){
+        recyclerView = binding.recyclerView
+        val layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = layoutManager
+        setAdapter()
+    }
+
+    // Fetch User List Form Firebase
     private fun getUsersFromFirebase() {
         homeViewModel.getUserListFromFirebase()
     }
 
+    // Observe response live data from view model
     private fun observeUserListLiveData() {
         homeViewModel.firebaseUserListLiveData.observe(viewLifecycleOwner) {
             if (it.isSuccess) {
-                arrayList.add(it.userData!!)
-                setAdapter()
+                for (data in it.userData){
+                    arrayList.add(data)
+                }
+                recyclerView.adapter?.notifyDataSetChanged()
                 loaderClass.hideLoader()
             } else {
                 SnackBarClass.showSnackBar(requireContext(), requireView(), it.error.toString())
@@ -65,9 +79,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        val recyclerView = binding.recyclerView
-        val layoutManager = LinearLayoutManager(context)
-        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = HomeAdapter(arrayList)
     }
 

@@ -14,13 +14,13 @@ class LoginFragmentTest {
 
     @org.junit.Test
     fun validUserName_inputEmptyString_expectedString(){
-        val result = loginFragment.isEmailEmptyorNot("")
+        val result = loginFragment.isEmailEmptyOrNot("")
         assertEquals(false, result)
     }
 
     @org.junit.Test
     fun validUserName_inputString_expectedString(){
-        val result = loginFragment.isEmailEmptyorNot("shubham@gmail.co")
+        val result = loginFragment.isEmailEmptyOrNot("shubham@gmail.co")
         assertEquals(true, result)
     }
 }

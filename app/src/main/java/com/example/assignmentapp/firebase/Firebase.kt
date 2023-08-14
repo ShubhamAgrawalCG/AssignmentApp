@@ -47,6 +47,7 @@ class Firebase @Inject constructor() {
         return deferred.await()
     }
 
+    //SignIn user with email and password
     suspend fun signInUserWithFirebase(email: String, password: String): Task<AuthResult> {
         val deferred = CompletableDeferred<Task<AuthResult>>()
         firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -56,8 +57,8 @@ class Firebase @Inject constructor() {
         return deferred.await()
     }
 
+    //Fetch User Data From Firebase Firestore
     suspend fun getUserListFromFirebase() : Task<QuerySnapshot> {
-
         val deferred = CompletableDeferred<Task<QuerySnapshot>>()
         firebaseDatabase.collection("users").get()
             .addOnCompleteListener {
@@ -66,6 +67,7 @@ class Firebase @Inject constructor() {
         return deferred.await()
     }
 
+    // Signout User from Firebase
      fun signOutFromFirebase() : Boolean {
         val deferred = CompletableDeferred<Boolean>()
         firebaseAuth.signOut()

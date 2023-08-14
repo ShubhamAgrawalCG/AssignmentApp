@@ -33,6 +33,7 @@ class LoginFragment : Fragment() {
         observeViewModelData()
     }
 
+    // Observe response from view model of live data
     private fun observeViewModelData() {
         loginViewModel.signInLiveData.observe(viewLifecycleOwner) {
             if (it.isSuccess) {
@@ -49,7 +50,7 @@ class LoginFragment : Fragment() {
 
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
-            if (isEmailEmptyorNot(email) && isPasswordEmptyorNot(password)){
+            if (isEmailEmptyOrNot(email) && isPasswordEmptyOrNot(password)){
                 loginViewModel.signInUserWithFirebase(binding.emailEditText.text.toString(), binding.passwordEditText.text.toString())
             } else{
                 SnackBarClass.showSnackBar(requireContext(), requireView(), "UserName or Password is empty")
@@ -57,11 +58,11 @@ class LoginFragment : Fragment() {
         }
     }
 
-     fun isEmailEmptyorNot(email: String) : Boolean{
+     fun isEmailEmptyOrNot(email: String) : Boolean{
        return email.isNotEmpty()
     }
 
-    private fun isPasswordEmptyorNot(password: String) : Boolean{
+    private fun isPasswordEmptyOrNot(password: String) : Boolean{
         return password.isNotEmpty()
     }
 

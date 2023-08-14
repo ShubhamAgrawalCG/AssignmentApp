@@ -71,12 +71,14 @@ class RegistrationFragment : Fragment() {
         formValidation.selectGender(binding.radioGroup)
     }
 
+    // Register user on Firebase
      fun registerUser() {
          val email = emailEditText.text.toString()
          val password = passwordEditText.text.toString()
         registrationViewModel.registerUserOnFirebase(email, password)
     }
 
+    // Save User data on Firebase
     fun saveUserData(){
         val emailText = binding.emailEditText.text.toString()
         val nameText = binding.usernameEditText.text.toString()
@@ -84,7 +86,7 @@ class RegistrationFragment : Fragment() {
         var genderText = formValidation.gender
         registrationViewModel.saveUserDataOnFirebase(emailText, nameText, dobText, genderText)
     }
-
+    // Observe response from view model using live data
     private fun observeFirebaseResponse() {
         registrationViewModel.registrationResponseLiveData.observe(this, {
             if (it.isSuccess) {
@@ -144,7 +146,6 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun moveToRegistrationPage(){
-        val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-        navController.navigate(R.id.loginFragment)
+        findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
     }
 }
